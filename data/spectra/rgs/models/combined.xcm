@@ -1,0 +1,96 @@
+cpd /xs
+setpl e
+statistic cstat
+abund wilm
+
+data 1:1 101_r1_sc_opt.pha
+data 2:2 101_r2_sc_opt.pha
+data 3:3 701_r1_sc_opt.pha
+data 4:4 701_r2_sc_opt.pha
+
+data 5:5 101_r1_bg_opt.pha
+data 6:6 101_r2_bg_opt.pha
+data 7:7 701_r1_bg_opt.pha
+data 8:8 701_r2_bg_opt.pha
+
+response 1:1 101_r1.rsp
+response 1:2 none
+response 1:3 none
+response 1:4 none
+response 1:5 101_r1.rsp
+response 1:6 none
+response 1:7 none
+response 1:8 none
+
+response 2:1 none
+response 2:2 101_r2.rsp
+response 2:3 none
+response 2:4 none
+response 2:5 none
+response 2:6 101_r2.rsp
+response 2:7 none
+response 2:8 none
+
+response 3:1 none
+response 3:2 none
+response 3:3 701_r1.rsp
+response 3:4 none
+response 3:5 none
+response 3:6 none
+response 3:7 701_r1.rsp
+response 3:8 none
+
+response 4:1 none
+response 4:2 none
+response 4:3 none
+response 4:4 701_r2.rsp
+response 4:5 none
+response 4:6 none
+response 4:7 none
+response 4:8 701_r2.rsp
+
+response 5:1 101_r1.rsp
+response 5:2 none
+response 5:3 none
+response 5:4 none
+response 5:5 101_r1.rsp
+response 5:6 none
+response 5:7 none
+response 5:8 none
+
+response 6:1 none
+response 6:2 101_r2.rsp
+response 6:3 none
+response 6:4 none
+response 6:5 none
+response 6:6 101_r2.rsp
+response 6:7 none
+response 6:8 none
+
+response 7:1 none
+response 7:2 none
+response 7:3 701_r1.rsp
+response 7:4 none
+response 7:5 none
+response 7:6 none
+response 7:7 701_r1.rsp
+response 7:8 none
+
+response 8:1 none
+response 8:2 none
+response 8:3 none
+response 8:4 701_r2.rsp
+response 8:5 none
+response 8:6 none
+response 8:7 none
+response 8:8 701_r2.rsp
+
+ignore bad
+
+method leven 100000 0.01
+abund wilm
+xsect vern
+cosmo 70 0 0.73
+xset delta 0.01
+systematic 0
+pl ld
