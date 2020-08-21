@@ -1,0 +1,45 @@
+How to use the PCA code
+--------------------------
+There are two python files. pca_public is the main file that you want to run to perform the PCA. pca_functions contains
+a bunch of functions called by the mail file. 
+
+Before running the main file, you will need to change a few settings that appear at the top of pca_public:
+
+------------------------------------------------------------------------------
+bkgcorr: True if you have background files, False if you do not. 
+dir_stem: The directory where your spectral files are located. They should be inside another folder within this directory,
+    named for the timestep chosen when the program is run (see timestep below).
+file_stem: A stem that identifies your spectral files, for example *src* for files containing the string "src".
+output_stem: The directory where the results are placed. This includes spectra and light curves for the principal 
+    components as well as the log-eigenvalue data (the variance each component accounts for).
+rmf_path: The full file name of your rmf.
+------------------------------------------------------------------------------
+
+With those settings chosen, run the program. You will be prompted for three numbers:
+
+------------------------------------------------------------------------------
+Enter timestep: The length of each spectrum in seconds, default 10000. This doesn't really matter, in the sense that 
+    it isn't factored into the actual PCA math or results. It's just a way to organize the files that was useful for M. Parker 
+    (the guy who wrote this code) when he was doing his original work on PCA, which used spectra of uniform 10000s length. If
+    your spectra are all longer than 10000s and all different lengths, it won't matter, the PCA will still use the entire spectrum.
+    All that matters is that the code will look for your files inside "dir_stem/10000s" if you enter 10000, and so on. So my 
+    files are inside "dir_stem" in a folder called "10000s". If this bugs you, feel free to change how the code looks for your
+    files. I was too scared of breaking something to change much.
+Enter number of component spectra to plot: Default three. The number of principal components that will be plotted at the end. 
+    This is also the number of components that will be saved as output at the end, so even if you plan on making your own plots, 
+    if you want more than 3 PCs, enter the number here. 
+Enter desired number of bins: Default 50. The number of energy bins used for plotting. 
+------------------------------------------------------------------------------
+
+After that, you're good to go, with one warning: For the most part, pca_functions is safe to ignore, but if you're using 
+background correction, the way it finds your background files is weird. On line 233 of pca_functions, you'll see this:
+
+    backfile = specfile.replace('_src_' ,'_bg_')
+
+Which means it identifies background files by taking the name of the source files and swapping the string "_src_" with "_bg_".
+If your background files are not named like this, the code can't find them. You can change this line if you want to use a 
+different naming convention, but make sure the string you use to identify your files doesn't appear elsewhere in the full 
+filepath, or you'll get an error (for example, it used to say replace('sc' ,'bg') and gave me errors because the filepath contained
+disc21, and it was looking for background files in dibg21).
+
+ 
