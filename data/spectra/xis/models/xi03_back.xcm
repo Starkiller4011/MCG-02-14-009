@@ -1,0 +1,111 @@
+cpd /xs
+setpl e
+
+statistic cstat
+data 1:1 oxi03sc.pha
+response  1:1 xi03.rsp
+response  2:1 xi03.rsp
+
+data 2:2 oxi03bg.pha
+response  1:2 xi03.rsp
+response  2:2 xi03.rsp
+ignore 1:1-69,96-172 2:1-15,37-40,44-47,115-143
+
+method leven 100000 0.01
+abund wilm
+xsect vern
+cosmo 70 0 0.73
+xset delta 0.01
+systematic 0
+model  constant*TBabs*powerlaw
+              1         -1          0          0      1e+10      1e+10
+          0.135         -1          0          0     100000      1e+06
+        1.88498       0.01         -3         -2          9         10
+     0.00138722       0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= p2
+= p3
+= p4
+model  2:back constant(bknpower + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian + gaussian)
+       0.706445         -1          0          0      1e+10      1e+10
+        1.24187      -0.01         -3         -2          9         10
+        6.51739      -0.01          2          2          8          8
+           -2.5      -0.01         -3         -2          9         10
+    5.51652e-05      -0.01          0          0      1e+20      1e+24
+        4.42308         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    2.45138e-07      -0.01          0          0      1e+20      1e+24
+        4.92891         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    5.07708e-07      -0.01          0          0      1e+20      1e+24
+        6.26387         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    4.45226e-07      -0.01          0          0      1e+20      1e+24
+            3.9         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    -6.4443e-07      -0.01         -1         -1          0          0
+            8.8         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+   -6.66721e-07      -0.01         -1         -1          0          0
+        6.56154         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    1.14093e-06      -0.01          0          0      1e+20      1e+24
+            0.8         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+   -2.82052e-06      -0.01         -1         -1          0          0
+       0.732384         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    5.68977e-06      -0.01          0          0      1e+20      1e+24
+        9.68339         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    1.09288e-05      -0.01          0          0      1e+20      1e+24
+        8.29316         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    2.25319e-06      -0.01          0          0      1e+20      1e+24
+            5.9         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    1.41102e-06      -0.01          0          0      1e+20      1e+24
+          7.488         -1          0          0      1e+06      1e+06
+              0         -1          0          0         10         20
+    9.62885e-06      -0.01          0          0      1e+20      1e+24
+              1         -1          0          0      1e+10      1e+10
+= back:p2
+= back:p3
+= back:p4
+= back:p5
+= back:p6
+= back:p7
+= back:p8
+= back:p9
+= back:p10
+= back:p11
+= back:p12
+= back:p13
+= back:p14
+= back:p15
+= back:p16
+= back:p17
+= back:p18
+= back:p19
+= back:p20
+= back:p21
+= back:p22
+= back:p23
+= back:p24
+= back:p25
+= back:p26
+= back:p27
+= back:p28
+= back:p29
+= back:p30
+= back:p31
+= back:p32
+= back:p33
+= back:p34
+= back:p35
+= back:p36
+= back:p37
+= back:p38
+= back:p39
+= back:p40
+= back:p41

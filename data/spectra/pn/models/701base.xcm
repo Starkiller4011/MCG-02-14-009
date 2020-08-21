@@ -1,0 +1,74 @@
+statistic cstat
+abund wilm
+cpd /xs
+setpl e
+
+data 1:1 701_sc_opt.pha
+response  1:1 701_pn.rmf
+response  2:1 701_pn.rmf
+arf 1:1 701_pn.arf
+
+data 2:2 701_bg_opt.pha
+response  1:2 701_pn.rmf
+response  2:2 701_pn.rmf
+arf 2:2 none
+ignore 1:1-5,120-176 2:1-4,99-158
+
+method leven 10000 0.01
+abund wilm
+xsect vern
+cosmo 70 0 0.73
+xset delta 0.01
+systematic 0
+model  constant*TBabs(powerlaw + bbody)
+              1         -1          0          0      1e+10      1e+10
+       0.123659      0.001          0          0     100000      1e+06
+        2.25649       0.01         -3         -2          9         10
+     0.00160985       0.01          0          0      1e+20      1e+24
+        1.53835       0.01     0.0001       0.01        100        200
+    1.08701e-05       0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= p2
+= p3
+= p4
+= p5
+= p6
+model  2:back powerlaw + gaussian + gaussian + gaussian + gaussian + gaussian + powerlaw
+       0.919541      -0.01         -3         -2          9         10
+    0.000227331      -0.01          0          0      1e+20      1e+24
+        9.39372      -0.01          9          9         10         10
+            0.2      -0.01       0.01       0.01        0.2        0.2
+         -0.001      -0.01     -0.001     -0.001    -0.0001    -0.0001
+         2.9547      -0.01        2.7        2.7          3          3
+           0.01      -0.01       0.01       0.01          1          1
+    -0.00061996      -0.01     -0.001     -0.001    -0.0001    -0.0001
+        2.07745      -0.01          2          2        2.2        2.2
+      0.0880494      -0.01       0.01       0.01        0.3        0.3
+     0.00117598      -0.01          0          0      1e+20      1e+24
+        8.58837      -0.01          8          8          9          9
+           0.01      -0.01       0.01       0.01        0.3        0.3
+    0.000110814      -0.01          0          0      1e+20      1e+24
+            1.5      -0.01        1.5        1.5        1.8        1.8
+      0.0366903      -0.01       0.01       0.01        0.3        0.3
+     0.00190706      -0.01          0          0      1e+20      1e+24
+       0.811356      -0.01         -3         -2          9         10
+      0.0399117      -0.01          0          0      1e+20      1e+24
+= back:p1
+= back:p2
+= back:p3
+= back:p4
+= back:p5
+= back:p6
+= back:p7
+= back:p8
+= back:p9
+= back:p10
+= back:p11
+= back:p12
+= back:p13
+= back:p14
+= back:p15
+= back:p16
+= back:p17
+= back:p18
+= back:p19

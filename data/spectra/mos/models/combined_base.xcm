@@ -1,0 +1,226 @@
+statistic cstat
+data 1:1 101_m1_sc_opt.pha
+response  1:1 101_m1.rmf
+response  5:1 101_m1.rmf
+arf 1:1 101_m1.arf
+
+data 2:2 101_m2_sc_opt.pha
+response  1:2 none
+response  2:2 101_m2.rmf
+response  5:2 none
+response  6:2 101_m2.rmf
+arf 2:2 101_m2.arf
+
+data 3:3 701_m1_sc_opt.pha
+response  1:3 none
+response  2:3 none
+response  3:3 701_m1.rmf
+response  5:3 none
+response  6:3 none
+response  7:3 701_m1.rmf
+arf 3:3 701_m1.arf
+
+data 4:4 701_m2_sc_opt.pha
+response  1:4 none
+response  2:4 none
+response  3:4 none
+response  4:4 701_m2.rmf
+response  5:4 none
+response  6:4 none
+response  7:4 none
+response  8:4 701_m2.rmf
+arf 4:4 701_m2.arf
+
+data 5:5 101_m1_bg_opt.pha
+response  1:5 101_m1.rmf
+response  2:5 none
+response  3:5 none
+response  4:5 none
+response  5:5 101_m1.rmf
+response  6:5 none
+response  7:5 none
+response  8:5 none
+
+data 6:6 101_m2_bg_opt.pha
+response  1:6 none
+response  2:6 101_m2.rmf
+response  3:6 none
+response  4:6 none
+response  5:6 none
+response  6:6 101_m2.rmf
+response  7:6 none
+response  8:6 none
+
+data 7:7 701_m1_bg_opt.pha
+response  1:7 none
+response  2:7 none
+response  3:7 701_m1.rmf
+response  4:7 none
+response  5:7 none
+response  6:7 none
+response  7:7 701_m1.rmf
+response  8:7 none
+
+data 8:8 701_m2_bg_opt.pha
+response  1:8 none
+response  2:8 none
+response  3:8 none
+response  4:8 701_m2.rmf
+response  5:8 none
+response  6:8 none
+response  7:8 none
+response  8:8 701_m2.rmf
+ignore 1:1-126,130-140 2:1-7,136-148 3:1-105,107-116 4:1-106,108-118 5:1-89,91-101 6:1-7,90-99 7:1-75,77-86 8:1-77,79-89
+
+method leven 100000 0.01
+abund wilm
+xsect vern
+cosmo 70 0 0.73
+xset delta 0.01
+systematic 0
+model  1:101m1s constant*TBabs(powerlaw + bbody)
+              1         -1          0          0      1e+10      1e+10
+          0.135         -1          0          0     100000      1e+06
+        1.83257      -0.01         -3         -2          9         10
+     0.00120072      -0.01          0          0      1e+20      1e+24
+       0.131586      -0.01     0.0001       0.01        100        200
+    1.89593e-05      -0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= 101m1s:p2
+= 101m1s:p3
+= 101m1s:p4
+= 101m1s:p5
+= 101m1s:p6
+model  2:101m2s constant*TBabs(powerlaw + bbody)
+              1         -1          0          0      1e+10      1e+10
+          0.135         -1          0          0     100000      1e+06
+        2.28532       0.01         -3         -2          9         10
+     0.00179969       0.01          0          0      1e+20      1e+24
+        2.33058       0.01     0.0001       0.01        100        200
+    3.20268e-05       0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= 101m2s:p2
+= 101m2s:p3
+= 101m2s:p4
+= 101m2s:p5
+= 101m2s:p6
+model  3:701m1s constant*TBabs(powerlaw + bbody)
+              1         -1          0          0      1e+10      1e+10
+          0.135         -1          0          0     100000      1e+06
+        2.08581      -0.01         -3         -2          9         10
+     0.00181828      -0.01          0          0      1e+20      1e+24
+         0.0001      -0.01     0.0001       0.01        100        200
+    6.76263e-06      -0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= 701m1s:p2
+= 701m1s:p3
+= 701m1s:p4
+= 701m1s:p5
+= 701m1s:p6
+model  4:701m2s constant*TBabs(powerlaw + bbody)
+              1         -1          0          0      1e+10      1e+10
+          0.135         -1          0          0     100000      1e+06
+        2.71153      -0.01         -3         -2          9         10
+     0.00169169      -0.01          0          0      1e+20      1e+24
+        1.47482      -0.01     0.0001       0.01        100        200
+    4.06862e-05      -0.01          0          0      1e+20      1e+24
+              0         -1          0          0      1e+10      1e+10
+= 701m2s:p2
+= 701m2s:p3
+= 701m2s:p4
+= 701m2s:p5
+= 701m2s:p6
+model  5:101m1b bknpower              + gaussian + gaussian +  gaussian  +   gaussian   +          gaussian          +           gaussian           +            gaussian            +                gaussian                +                 gaussian                 +                  gaussian
+      -0.829688      -0.01         -3         -2          9         10
+        1.12094      -0.01          1          1          3          3
+        1.42473      -0.01         -3         -2          9         10
+     0.00459259      -0.01          0          0      1e+20      1e+24
+            7.8      -0.01        7.8        7.8        8.2        8.2
+       0.099999     -0.001          0          0        0.1        0.1
+    2.59348e-05      -0.01          0          0      1e+20      1e+24
+              7      -0.01          7          7        7.2        7.2
+    0.000457533     -0.001          0          0       0.01       0.01
+    4.47036e-05      -0.01          0          0      1e+20      1e+24
+        6.26772      -0.05          0          0      1e+06      1e+06
+           0.01     -0.001          0          0       0.01       0.01
+    0.000216948      -0.01          0          0      1e+20      1e+24
+        5.30504      -0.01        4.5        4.5        5.5        5.5
+    1.94948e-07     -0.001          0          0       0.01       0.01
+    0.000198257      -0.01          0          0      1e+20      1e+24
+       0.882302      -0.01        0.8        0.8          1          1
+     2.9896e-05     -0.001          0          0       0.01       0.01
+    0.000293932      -0.01          0          0      1e+20      1e+24
+       0.539865      -0.01        0.5        0.5        0.6        0.6
+     0.00127693     -0.001          0          0       0.01       0.01
+    0.000319853      -0.01          0          0      1e+20      1e+24
+           2.96      -0.01        2.8        2.8          3          3
+    3.83944e-06     -0.001          0          0       0.01       0.01
+      7.417e-05      -0.01          0          0      1e+20      1e+24
+        3.42922      -0.01        3.2        3.2        3.8        3.8
+    3.19941e-07     -0.001          0          0       0.01       0.01
+    0.000111507      -0.01          0          0      1e+20      1e+24
+            1.5      -0.01        1.5        1.5        1.8        1.8
+           0.01     -0.001          0          0       0.01       0.01
+    0.000436252      -0.01          0          0      1e+20      1e+24
+       0.430874      -0.01        0.4        0.4        0.5        0.5
+      0.0102486     -0.001          0          0        0.1        0.1
+    0.000614265      -0.01          0          0      1e+20      1e+24
+= 101m1b:p1
+= 101m1b:p2
+= 101m1b:p3
+= 101m1b:p4
+= 101m1b:p5
+= 101m1b:p6
+= 101m1b:p7
+= 101m1b:p8
+= 101m1b:p9
+= 101m1b:p10
+= 101m1b:p11
+= 101m1b:p12
+= 101m1b:p13
+= 101m1b:p14
+= 101m1b:p15
+= 101m1b:p16
+= 101m1b:p17
+= 101m1b:p18
+= 101m1b:p19
+= 101m1b:p20
+= 101m1b:p21
+= 101m1b:p22
+= 101m1b:p23
+= 101m1b:p24
+= 101m1b:p25
+= 101m1b:p26
+= 101m1b:p27
+= 101m1b:p28
+= 101m1b:p29
+= 101m1b:p30
+= 101m1b:p31
+= 101m1b:p32
+= 101m1b:p33
+= 101m1b:p34
+model  6:101m2b bknpower + gaussian
+       0.290215      -0.01         -3         -2          9         10
+        1.30487      -0.01          1          1          3          3
+              2      -0.01         -3         -2          9         10
+     0.00581348       0.01          0          0      1e+20      1e+24
+        4.99944       0.01          4          4          5          5
+       0.998823      0.001          0          0          1          1
+     0.00112737       0.01          0          0      1e+20      1e+24
+= 101m2b:p1
+= 101m2b:p2
+= 101m2b:p3
+= 101m2b:p4
+= 101m2b:p5
+= 101m2b:p6
+= 101m2b:p7
+model  7:701m1b powerlaw
+       0.932826      -0.01         -3         -2          9         10
+     0.00411576      -0.01          0          0      1e+20      1e+24
+= 701m1b:p1
+= 701m1b:p2
+model  8:701m2b powerlaw
+        1.35054      -0.01         -3         -2          9         10
+     0.00828014      -0.01          0          0      1e+20      1e+24
+= 701m2b:p1
+= 701m2b:p2
